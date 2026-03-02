@@ -14,9 +14,9 @@
 > *Hover/View the animated simulation below!*
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="contribution-destroyer.svg">
-  <source media="(prefers-color-scheme: light)" srcset="contribution-destroyer.svg">
-  <img alt="Contribution Destroyer Animation" src="contribution-destroyer.svg" width="100%">
+  <source media="(prefers-color-scheme: dark)" srcset="contribution-arcade.svg">
+  <source media="(prefers-color-scheme: light)" srcset="contribution-arcade.svg">
+  <img alt="Contribution Destroyer Animation" src="contribution-arcade.svg" width="100%">
 </picture>
 
 ---
