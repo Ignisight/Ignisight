@@ -1,0 +1,776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no">
+  <title>ANURAG KISHAN // Contribution Destroyer</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Share+Tech+Mono&display=swap');
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box
+    }
+
+    body {
+      background: #0d1117;
+      overflow: hidden;
+      font-family: 'Orbitron', monospace;
+      cursor: crosshair;
+      touch-action: none
+    }
+
+    #gameCanvas {
+      display: block;
+      margin: 0 auto
+    }
+
+    #ui {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+      z-index: 10
+    }
+
+    #hud {
+      display: none;
+      justify-content: space-between;
+      align-items: center;
+      padding: 12px 20px;
+      background: linear-gradient(180deg, rgba(0, 255, 200, .08), transparent)
+    }
+
+    .hud-item {
+      color: #0ff;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 14px;
+      text-shadow: 0 0 8px #0ff
+    }
+
+    .hud-label {
+      color: #0f9;
+      font-size: 10px;
+      letter-spacing: 3px;
+      opacity: .7
+    }
+
+    #startScreen,
+    #gameOver,
+    #winScreen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 20;
+      pointer-events: all
+    }
+
+    #startScreen {
+      background: radial-gradient(ellipse at center, rgba(13, 17, 23, .97), rgba(0, 0, 0, .99))
+    }
+
+    #gameOver,
+    #winScreen {
+      background: rgba(0, 0, 0, .88);
+      display: none
+    }
+
+    .title {
+      font-family: 'Orbitron', monospace;
+      font-size: clamp(20px, 4.5vw, 44px);
+      font-weight: 900;
+      background: linear-gradient(135deg, #0ff, #39d353, #26a641, #0ff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-align: center;
+      animation: glow 3s ease-in-out infinite;
+      margin-bottom: 6px
+    }
+
+    .subtitle {
+      color: #39d353;
+      font-size: clamp(9px, 1.8vw, 13px);
+      letter-spacing: 5px;
+      opacity: .8;
+      margin-bottom: 24px
+    }
+
+    .bio {
+      color: #8b949e;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: clamp(10px, 1.6vw, 12px);
+      text-align: center;
+      max-width: 520px;
+      line-height: 1.9;
+      margin-bottom: 24px
+    }
+
+    .bio span {
+      color: #39d353
+    }
+
+    .bio .cyan {
+      color: #0ff
+    }
+
+    .start-btn {
+      background: transparent;
+      border: 1px solid #39d353;
+      color: #39d353;
+      font-family: 'Orbitron', monospace;
+      font-size: 14px;
+      padding: 12px 36px;
+      cursor: pointer;
+      letter-spacing: 3px;
+      transition: all .3s;
+      position: relative;
+      overflow: hidden
+    }
+
+    .start-btn:hover {
+      background: #39d353;
+      color: #0d1117;
+      box-shadow: 0 0 30px rgba(57, 211, 83, .4)
+    }
+
+    .controls-hint {
+      color: #484f58;
+      font-size: 9px;
+      margin-top: 16px;
+      letter-spacing: 2px
+    }
+
+    .gh-label {
+      color: #8b949e;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 11px;
+      margin-bottom: 6px;
+      letter-spacing: 2px
+    }
+
+    #contributionPreview {
+      margin: 20px 0;
+      display: flex;
+      gap: 3px;
+      flex-wrap: wrap;
+      justify-content: center;
+      max-width: 400px
+    }
+
+    .preview-block {
+      width: 11px;
+      height: 11px;
+      border-radius: 2px;
+      animation: fadeBlock .5s ease forwards;
+      opacity: 0
+    }
+
+    @keyframes fadeBlock {
+      to {
+        opacity: 1
+      }
+    }
+
+    @keyframes glow {
+
+      0%,
+      100% {
+        filter: brightness(1)
+      }
+
+      50% {
+        filter: brightness(1.2)
+      }
+    }
+
+    #score-final,
+    .win-score {
+      font-size: clamp(32px, 7vw, 56px);
+      font-weight: 900;
+      text-shadow: 0 0 20px currentColor
+    }
+
+    #score-final {
+      color: #f55
+    }
+
+    .win-score {
+      color: #39d353
+    }
+
+    .go-text {
+      color: #f55;
+      font-size: 18px;
+      letter-spacing: 5px;
+      margin-bottom: 8px
+    }
+
+    .win-text {
+      color: #39d353;
+      font-size: 18px;
+      letter-spacing: 5px;
+      margin-bottom: 8px
+    }
+
+    #scanlines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0, 255, 200, .01) 2px, rgba(0, 255, 200, .01) 4px);
+      pointer-events: none;
+      z-index: 99
+    }
+
+    #mobileControls {
+      display: none;
+      position: absolute;
+      bottom: 20px;
+      left: 0;
+      width: 100%;
+      justify-content: space-between;
+      padding: 0 20px;
+      z-index: 30;
+      pointer-events: all
+    }
+
+    .mobile-btn {
+      width: 56px;
+      height: 56px;
+      border: 1px solid rgba(57, 211, 83, .4);
+      border-radius: 50%;
+      background: rgba(57, 211, 83, .06);
+      color: #39d353;
+      font-size: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      -webkit-tap-highlight-color: transparent
+    }
+
+    @media(max-width:768px) {
+      #mobileControls {
+        display: flex
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div id="scanlines"></div>
+  <canvas id="gameCanvas"></canvas>
+  <div id="ui">
+    <div id="hud">
+      <div>
+        <div class="hud-label">SCORE</div>
+        <div class="hud-item" id="scoreDisplay">0</div>
+      </div>
+      <div>
+        <div class="hud-label">CONTRIBUTIONS LEFT</div>
+        <div class="hud-item" id="contribDisplay">0</div>
+      </div>
+      <div>
+        <div class="hud-label">WAVE</div>
+        <div class="hud-item" id="waveDisplay">1</div>
+      </div>
+      <div>
+        <div class="hud-label">SHIELD</div>
+        <div class="hud-item" id="livesDisplay">███</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="startScreen">
+    <div class="title">ANURAG KISHAN</div>
+    <div class="subtitle">CONTRIBUTION DESTROYER v1.0</div>
+    <div class="gh-label">─── GITHUB CONTRIBUTION GRAPH ───</div>
+    <div id="contributionPreview"></div>
+    <div class="bio">
+      <span>></span> B.Tech — NIT Jamshedpur // <span class="cyan">Software & AI</span><br>
+      <span>></span> ML Engineer // Python // Data Science<br>
+      <span>></span> <span class="cyan">Mission:</span> Destroy all contribution blocks!<br>
+      <span>></span> They fight back. Survive the onslaught. 💀
+    </div>
+    <button class="start-btn" id="startBtn" onclick="startGame()">► DESTROY CONTRIBUTIONS</button>
+    <div class="controls-hint">← → ARROWS TO MOVE • SPACE TO FIRE • MOUSE AIM</div>
+  </div>
+
+  <div id="gameOver">
+    <div class="go-text">MISSION FAILED</div>
+    <div id="score-final">0</div>
+    <div class="subtitle" style="margin:16px 0">CONTRIBUTIONS SURVIVED</div>
+    <button class="start-btn" onclick="startGame()">↻ RETRY</button>
+  </div>
+
+  <div id="winScreen">
+    <div class="win-text">ALL CONTRIBUTIONS DESTROYED!</div>
+    <div class="win-score" id="winScore">0</div>
+    <div class="subtitle" style="margin:16px 0">FINAL SCORE</div>
+    <div class="bio"><span>></span> Graph cleared. Time to commit more code. 🚀</div>
+    <button class="start-btn" onclick="startGame()">► PLAY AGAIN</button>
+  </div>
+
+  <div id="mobileControls">
+    <div class="mobile-btn" id="btnLeft">◄</div>
+    <div class="mobile-btn" id="btnFire">●</div>
+    <div class="mobile-btn" id="btnRight">►</div>
+  </div>
+
+  <script>
+    const canvas = document.getElementById('gameCanvas'), ctx = canvas.getContext('2d');
+    let W, H;
+
+    // GitHub contribution color levels
+    const GH_COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+    const GH_GLOW = ['rgba(22,27,34,.3)', 'rgba(14,68,41,.5)', 'rgba(0,109,50,.6)', 'rgba(38,166,65,.6)', 'rgba(57,211,83,.7)'];
+
+    // Game state
+    let player, bullets = [], contribBlocks = [], particles = [], stars = [], enemyBullets = [];
+    let score = 0, wave = 1, lives = 3, gameRunning = false, frameId;
+    let keys = {}, touchFiring = false, totalBlocks = 0, blocksDestroyed = 0;
+    let shakeX = 0, shakeY = 0, shakeIntensity = 0;
+
+    // Contribution data — simulating a real GitHub graph (52 weeks x 7 days)
+    // Higher numbers = more contributions = harder blocks
+    function generateContribData() {
+      let data = [];
+      // Create a recognizable pattern with varying intensity
+      const patterns = [
+        // Simulate real contribution patterns
+        () => Math.random() < .3 ? 0 : Math.random() < .4 ? 1 : Math.random() < .3 ? 2 : Math.random() < .2 ? 3 : 4,
+      ];
+      for (let week = 0; week < 26; week++) {
+        let col = [];
+        for (let day = 0; day < 7; day++) {
+          // Create some realistic patterns - more activity on weekdays
+          let base = day >= 1 && day <= 5 ? 0.6 : 0.3;
+          let val = Math.random() < base ? (Math.random() < .4 ? 1 : Math.random() < .35 ? 2 : Math.random() < .3 ? 3 : 4) : 0;
+          col.push(val);
+        }
+        data.push(col);
+      }
+      return data;
+    }
+
+    function resize() {
+      W = canvas.width = window.innerWidth;
+      H = canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resize);
+    resize();
+
+    // Generate preview blocks on start screen
+    function generatePreview() {
+      const preview = document.getElementById('contributionPreview');
+      preview.innerHTML = '';
+      for (let i = 0; i < 182; i++) {
+        let div = document.createElement('div');
+        div.className = 'preview-block';
+        let level = Math.random() < .3 ? 0 : Math.random() < .3 ? 1 : Math.random() < .25 ? 2 : Math.random() < .2 ? 3 : 4;
+        div.style.background = GH_COLORS[level];
+        div.style.animationDelay = (i * 8) + 'ms';
+        preview.appendChild(div);
+      }
+    }
+    generatePreview();
+
+    // Stars
+    for (let i = 0; i < 120; i++) stars.push({
+      x: Math.random() * 2000, y: Math.random() * 2000,
+      s: Math.random() * 1.5 + .5, sp: Math.random() * 1.5 + .5,
+      c: `hsl(${140 + Math.random() * 80},${30 + Math.random() * 40}%,${30 + Math.random() * 30}%)`
+    });
+
+    class Player {
+      constructor() {
+        this.w = 36; this.h = 28; this.x = W / 2; this.y = H - 70; this.speed = 5.5; this.cooldown = 0; this.thrust = 0;
+        this.invincible = 0;
+      }
+      draw() {
+        if (this.invincible > 0 && Math.floor(this.invincible * 10) % 2 === 0) return;
+        ctx.save(); ctx.translate(this.x, this.y);
+        // Engine
+        this.thrust += .12;
+        let g = ctx.createRadialGradient(0, this.h / 2 + 4, 0, 0, this.h / 2 + 4, 16);
+        g.addColorStop(0, 'rgba(57,211,83,.9)'); g.addColorStop(.5, 'rgba(0,255,200,.3)'); g.addColorStop(1, 'transparent');
+        ctx.fillStyle = g; ctx.fillRect(-7, this.h / 2 - 2, 14, 12 + Math.sin(this.thrust * 6) * 4);
+        // Ship
+        ctx.beginPath(); ctx.moveTo(0, -this.h / 2); ctx.lineTo(-this.w / 2, this.h / 2);
+        ctx.lineTo(-this.w / 4, this.h / 3); ctx.lineTo(0, this.h / 2 - 4);
+        ctx.lineTo(this.w / 4, this.h / 3); ctx.lineTo(this.w / 2, this.h / 2); ctx.closePath();
+        let sg = ctx.createLinearGradient(0, -this.h / 2, 0, this.h / 2);
+        sg.addColorStop(0, '#39d353'); sg.addColorStop(.5, '#0e4429'); sg.addColorStop(1, '#061');
+        ctx.fillStyle = sg; ctx.fill();
+        ctx.strokeStyle = '#39d353'; ctx.lineWidth = 1; ctx.stroke();
+        ctx.shadowColor = '#39d353'; ctx.shadowBlur = 12;
+        ctx.beginPath(); ctx.arc(0, -1, 4, 0, Math.PI * 2);
+        ctx.fillStyle = 'rgba(57,211,83,.7)'; ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
+      }
+      update() {
+        if (keys['ArrowLeft'] || keys['a']) this.x -= this.speed;
+        if (keys['ArrowRight'] || keys['d']) this.x += this.speed;
+        if (keys['ArrowUp'] || keys['w']) this.y -= this.speed;
+        if (keys['ArrowDown'] || keys['s']) this.y += this.speed;
+        this.x = Math.max(this.w / 2, Math.min(W - this.w / 2, this.x));
+        this.y = Math.max(H * .4, Math.min(H - this.h / 2, this.y));
+        if (this.cooldown > 0) this.cooldown--;
+        if (this.invincible > 0) this.invincible -= .016;
+        if ((keys[' '] || touchFiring) && this.cooldown <= 0) { this.shoot(); this.cooldown = 10; }
+      }
+      shoot() {
+        bullets.push({ x: this.x - 7, y: this.y - this.h / 2, vy: -9, w: 2, h: 10 });
+        bullets.push({ x: this.x + 7, y: this.y - this.h / 2, vy: -9, w: 2, h: 10 });
+        for (let i = 0; i < 2; i++) particles.push(new Particle(this.x, this.y - this.h / 2, '#39d353', 1.5));
+      }
+    }
+
+    class ContribBlock {
+      constructor(x, y, level, col, row) {
+        this.x = x; this.y = y; this.level = level;// 0-4
+        this.hp = level;// hits needed (0=empty/dead)
+        this.col = col; this.row = row;
+        this.size = 0; this.targetSize = 14;
+        this.alive = level > 0;
+        this.shootTimer = 200 + Math.random() * 400;
+        this.offsetY = 0; this.wobble = Math.random() * Math.PI * 2;
+        this.baseX = x; this.baseY = y;
+        this.moveDir = 1; this.moveSpeed = 0;
+      }
+      draw() {
+        if (!this.alive) return;
+        this.size += (this.targetSize - this.size) * .1;
+        let s = this.size;
+        ctx.save();
+        ctx.translate(this.x, this.y + this.offsetY);
+        // Glow
+        ctx.shadowColor = GH_GLOW[this.hp] || GH_GLOW[1];
+        ctx.shadowBlur = 8 + this.hp * 3;
+        // Block
+        ctx.fillStyle = GH_COLORS[this.hp] || GH_COLORS[1];
+        ctx.beginPath();
+        // Rounded rect
+        let r = 3;
+        ctx.moveTo(-s / 2 + r, -s / 2); ctx.lineTo(s / 2 - r, -s / 2); ctx.quadraticCurveTo(s / 2, -s / 2, s / 2, -s / 2 + r);
+        ctx.lineTo(s / 2, s / 2 - r); ctx.quadraticCurveTo(s / 2, s / 2, s / 2 - r, s / 2);
+        ctx.lineTo(-s / 2 + r, s / 2); ctx.quadraticCurveTo(-s / 2, s / 2, -s / 2, s / 2 - r);
+        ctx.lineTo(-s / 2, -s / 2 + r); ctx.quadraticCurveTo(-s / 2, -s / 2, -s / 2 + r, -s / 2);
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        // Border highlight
+        ctx.strokeStyle = 'rgba(255,255,255,.08)'; ctx.lineWidth = .5; ctx.stroke();
+        ctx.restore();
+      }
+      update(moveOffset, dropAmount) {
+        this.wobble += .03;
+        this.offsetY = Math.sin(this.wobble) * 2;
+        this.x = this.baseX + moveOffset;
+        this.baseY += dropAmount;
+        this.y = this.baseY;
+        // Shooting back
+        if (this.alive && this.hp >= 2) {
+          this.shootTimer--;
+          if (this.shootTimer <= 0) {
+            enemyBullets.push({ x: this.x, y: this.y + 8, vy: 3 + wave * .3, w: 3, h: 6, c: GH_COLORS[this.hp] });
+            this.shootTimer = 150 + Math.random() * 300 - wave * 20;
+          }
+        }
+      }
+      hit() {
+        this.hp--;
+        if (this.hp <= 0) {
+          this.alive = false;
+          blocksDestroyed++;
+          return true;
+        }
+        // Visual feedback
+        this.targetSize = 18;
+        setTimeout(() => this.targetSize = 14, 100);
+        return false;
+      }
+    }
+
+    class Particle {
+      constructor(x, y, c, s) {
+        this.x = x; this.y = y;
+        this.vx = (Math.random() - .5) * s * 3;
+        this.vy = (Math.random() - .5) * s * 3;
+        this.life = 1; this.decay = .015 + Math.random() * .025;
+        this.c = c; this.s = Math.random() * 4 + 1;
+      }
+      update() { this.x += this.vx; this.y += this.vy; this.vy += .05; this.life -= this.decay }
+      draw() {
+        ctx.globalAlpha = this.life;
+        ctx.shadowColor = this.c; ctx.shadowBlur = 4;
+        ctx.fillStyle = this.c;
+        ctx.fillRect(this.x - this.s / 2, this.y - this.s / 2, this.s, this.s);
+        ctx.shadowBlur = 0;
+        ctx.globalAlpha = 1;
+      }
+    }
+
+    function explode(x, y, color, n = 15) {
+      for (let i = 0; i < n; i++) particles.push(new Particle(x, y, color, 4));
+      // Screen shake
+      shakeIntensity = 5;
+    }
+
+    function buildContribGrid() {
+      contribBlocks = [];
+      let data = generateContribData();
+      let blockSize = 16;
+      let gap = 3;
+      let cols = data.length;
+      let rows = 7;
+      let gridW = cols * (blockSize + gap);
+      let startX = (W - gridW) / 2 + blockSize / 2;
+      let startY = 60;
+      totalBlocks = 0; blocksDestroyed = 0;
+
+      for (let c = 0; c < cols; c++) {
+        for (let r = 0; r < rows; r++) {
+          let level = data[c][r];
+          let bx = startX + c * (blockSize + gap);
+          let by = startY + r * (blockSize + gap);
+          let block = new ContribBlock(bx, by, level, c, r);
+          contribBlocks.push(block);
+          if (level > 0) totalBlocks++;
+        }
+      }
+    }
+
+    // Movement state for the grid (Space Invaders style)
+    let gridMoveOffset = 0, gridMoveDir = 1, gridMoveSpeed = 0.3, gridDropAmount = 0;
+
+    function drawStars() {
+      stars.forEach(s => {
+        s.y += s.sp; if (s.y > H) { s.y = 0; s.x = Math.random() * W }
+        ctx.fillStyle = s.c; ctx.fillRect(s.x, s.y, s.s, s.s);
+      });
+    }
+
+    function drawGrid() {
+      ctx.strokeStyle = 'rgba(57,211,83,.025)'; ctx.lineWidth = 1;
+      for (let i = 0; i < W; i += 50) { ctx.beginPath(); ctx.moveTo(i, 0); ctx.lineTo(i, H); ctx.stroke() }
+      for (let i = 0; i < H; i += 50) { ctx.beginPath(); ctx.moveTo(0, i); ctx.lineTo(W, i); ctx.stroke() }
+    }
+
+    function drawGHLabel() {
+      ctx.fillStyle = 'rgba(139,148,158,.25)';
+      ctx.font = '10px "Share Tech Mono",monospace';
+      ctx.textAlign = 'center';
+      ctx.fillText('github.com/anuragkishan', W / 2, 30);
+      // Day labels
+      let labels = ['Mon', '', 'Wed', '', 'Fri', '', ''];
+      let startY = 60; let blockSize = 16; let gap = 3;
+      ctx.textAlign = 'right'; ctx.fillStyle = 'rgba(139,148,158,.2)'; ctx.font = '9px "Share Tech Mono",monospace';
+      let gridW = 26 * (blockSize + gap);
+      let startX = (W - gridW) / 2;
+      for (let i = 0; i < 7; i++) {
+        if (labels[i]) ctx.fillText(labels[i], startX - 8, startY + i * (blockSize + gap) + 11);
+      }
+    }
+
+    function updateHUD() {
+      document.getElementById('scoreDisplay').textContent = score.toString().padStart(6, '0');
+      document.getElementById('contribDisplay').textContent = (totalBlocks - blocksDestroyed);
+      document.getElementById('waveDisplay').textContent = wave;
+      let sh = ''; for (let i = 0; i < lives; i++) sh += '█';
+      document.getElementById('livesDisplay').textContent = sh || '—';
+      document.getElementById('livesDisplay').style.color = lives <= 1 ? '#f55' : '#39d353';
+    }
+
+    function checkCollision(ax, ay, aw, ah, bx, by, bw, bh) {
+      return Math.abs(ax - bx) < (aw + bw) / 2 && Math.abs(ay - by) < (ah + bh) / 2;
+    }
+
+    function gameLoop() {
+      if (!gameRunning) return;
+
+      // Screen shake decay
+      if (shakeIntensity > 0) {
+        shakeX = (Math.random() - .5) * shakeIntensity;
+        shakeY = (Math.random() - .5) * shakeIntensity;
+        shakeIntensity *= .9;
+        if (shakeIntensity < .5) shakeIntensity = 0;
+      } else { shakeX = 0; shakeY = 0 }
+
+      ctx.save();
+      ctx.translate(shakeX, shakeY);
+
+      // Clear with trail
+      ctx.fillStyle = 'rgba(13,17,23,.35)';
+      ctx.fillRect(-10, -10, W + 20, H + 20);
+
+      drawGrid();
+      drawStars();
+      drawGHLabel();
+
+      // Move contribution grid (Space Invaders pattern)
+      gridMoveOffset += gridMoveSpeed * gridMoveDir;
+      let needDrop = false;
+      // Check bounds
+      contribBlocks.forEach(b => {
+        if (!b.alive) return;
+        let bx = b.baseX + gridMoveOffset;
+        if (bx > W - 30 || bx < 30) needDrop = true;
+      });
+      if (needDrop) {
+        gridMoveDir *= -1;
+        gridDropAmount = 3 + wave * .5;
+      } else {
+        gridDropAmount = 0;
+      }
+
+      // Update and draw contribution blocks
+      let anyAlive = false;
+      let lowestBlockY = 0;
+      contribBlocks.forEach(b => {
+        b.update(gridMoveOffset, gridDropAmount);
+        b.draw();
+        if (b.alive) {
+          anyAlive = true;
+          if (b.y > lowestBlockY) lowestBlockY = b.y;
+        }
+      });
+
+      // Win condition
+      if (!anyAlive) {
+        gameRunning = false;
+        cancelAnimationFrame(frameId);
+        document.getElementById('winScore').textContent = score;
+        document.getElementById('winScreen').style.display = 'flex';
+        return;
+      }
+
+      // Blocks reached player = game over
+      if (lowestBlockY > H - 100) {
+        endGame();
+        ctx.restore();
+        return;
+      }
+
+      player.update();
+      player.draw();
+
+      // Player bullets
+      bullets = bullets.filter(b => {
+        b.y += b.vy;
+        ctx.shadowColor = '#39d353'; ctx.shadowBlur = 6;
+        ctx.fillStyle = '#39d353';
+        ctx.fillRect(b.x - b.w / 2, b.y - b.h / 2, b.w, b.h);
+        ctx.shadowBlur = 0;
+        if (b.y < -20) return false;
+        // Check hit on blocks
+        for (let block of contribBlocks) {
+          if (!block.alive) continue;
+          if (checkCollision(b.x, b.y, b.w, b.h, block.x, block.y + block.offsetY, 14, 14)) {
+            let destroyed = block.hit();
+            if (destroyed) {
+              explode(block.x, block.y, GH_COLORS[block.level], 20);
+              score += block.level * 10;
+            } else {
+              score += 5;
+              for (let i = 0; i < 5; i++) particles.push(new Particle(block.x, block.y, GH_COLORS[block.hp + 1], 2));
+            }
+            updateHUD();
+            return false;
+          }
+        }
+        return true;
+      });
+
+      // Enemy bullets
+      enemyBullets = enemyBullets.filter(b => {
+        b.y += b.vy;
+        ctx.shadowColor = b.c; ctx.shadowBlur = 5;
+        ctx.fillStyle = b.c;
+        ctx.fillRect(b.x - b.w / 2, b.y - b.h / 2, b.w, b.h);
+        ctx.shadowBlur = 0;
+        if (b.y > H + 20) return false;
+        // Hit player?
+        if (player.invincible <= 0 && checkCollision(b.x, b.y, b.w, b.h, player.x, player.y, player.w, player.h)) {
+          lives--;
+          player.invincible = 2;
+          explode(player.x, player.y, '#f55', 20);
+          updateHUD();
+          if (lives <= 0) { endGame(); return false }
+          return false;
+        }
+        return true;
+      });
+
+      // Particles
+      particles = particles.filter(p => { p.update(); p.draw(); return p.life > 0 });
+
+      ctx.restore();
+      frameId = requestAnimationFrame(gameLoop);
+    }
+
+    function startGame() {
+      document.getElementById('startScreen').style.display = 'none';
+      document.getElementById('gameOver').style.display = 'none';
+      document.getElementById('winScreen').style.display = 'none';
+      document.getElementById('hud').style.display = 'flex';
+      ctx.clearRect(0, 0, W, H);
+      score = 0; wave = 1; lives = 3;
+      bullets = []; enemyBullets = []; particles = [];
+      gridMoveOffset = 0; gridMoveDir = 1; gridMoveSpeed = 0.3;
+      player = new Player();
+      buildContribGrid();
+      gameRunning = true;
+      updateHUD();
+      gameLoop();
+    }
+
+    function endGame() {
+      gameRunning = false; cancelAnimationFrame(frameId);
+      document.getElementById('score-final').textContent = score;
+      document.getElementById('gameOver').style.display = 'flex';
+    }
+
+    // Keyboard
+    document.addEventListener('keydown', e => { keys[e.key] = true; if (e.key === ' ') e.preventDefault() });
+    document.addEventListener('keyup', e => keys[e.key] = false);
+
+    // Mouse
+    canvas.addEventListener('mousemove', e => { if (gameRunning && player) player.x += (e.clientX - player.x) * .12 });
+    canvas.addEventListener('mousedown', () => touchFiring = true);
+    canvas.addEventListener('mouseup', () => touchFiring = false);
+
+    // Touch
+    canvas.addEventListener('touchstart', e => { e.preventDefault(); touchFiring = true }, { passive: false });
+    canvas.addEventListener('touchmove', e => { e.preventDefault(); let t = e.touches[0]; if (gameRunning && player) player.x += (t.clientX - player.x) * .2 }, { passive: false });
+    canvas.addEventListener('touchend', () => touchFiring = false);
+
+    // Mobile buttons
+    ['btnLeft', 'btnRight', 'btnFire'].forEach(id => {
+      let el = document.getElementById(id); if (!el) return;
+      el.addEventListener('touchstart', e => {
+        e.preventDefault(); e.stopPropagation();
+        if (id === 'btnLeft') keys['ArrowLeft'] = true;
+        if (id === 'btnRight') keys['ArrowRight'] = true;
+        if (id === 'btnFire') touchFiring = true;
+      }, { passive: false });
+      el.addEventListener('touchend', e => {
+        e.preventDefault(); e.stopPropagation();
+        if (id === 'btnLeft') keys['ArrowLeft'] = false;
+        if (id === 'btnRight') keys['ArrowRight'] = false;
+        if (id === 'btnFire') touchFiring = false;
+      }, { passive: false });
+    });
+  </script>
+</body>
+
+</html>
