@@ -72,7 +72,7 @@
 ### 📡 `ESTABLISH_CONNECTION`
 
 > **`>`** [Execute Mail Protocol](mailto:anuragkishan7@gmail.com)  
-> **`>`** [Access LinkedIn Mainframe](https://linkedin.com/in/anurag-kishan)  
+> **`>`** [Access LinkedIn Mainframe](https://linkedin.com/in/anurag-kishan07)  
 > **`>`** [Access GitHub Database](https://github.com/Ignisight)
 
 ---
