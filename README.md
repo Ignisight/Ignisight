@@ -60,9 +60,15 @@
 
 <br>
 
-### 📊 `TELEMETRY_DATA`
+### 📊 `TELEMETRY_DATA` &nbsp; <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=400&size=10&duration=3000&pause=500&color=39D353&vCenter=true&multiline=false&repeat=true&width=400&height=25&lines=>+LINK_ESTABLISHED_+MONITORING_VITALS...;>+GATHERING_COMMIT_METRICS_+FETCHING...;>+SYSTEM_OPTIMAL_+RECEIVING_DATA..." alt="Live Feed Status" />
 
 <div align="center">
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="network-radar.svg">
+    <source media="(prefers-color-scheme: light)" srcset="network-radar.svg">
+    <img alt="Live Network Radar" src="network-radar.svg" width="100%">
+  </picture>
+  <br><br>
   <img src="https://github-readme-stats.vercel.app/api?username=Ignisight&show_icons=true&theme=react-dark&bg_color=0D1117&title_color=39d353&text_color=8b949e&icon_color=39d353&border_color=26a641&hide_border=false" height="170"/>
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ignisight&theme=react-dark&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&border=26a641" height="170"/>
 </div>
