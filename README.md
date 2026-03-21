@@ -62,7 +62,9 @@
 ### `TELEMETRY_DATA` &nbsp; <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=400&size=10&duration=3000&pause=500&color=39D353&vCenter=true&multiline=false&repeat=true&width=400&height=25&lines=>+LINK_ESTABLISHED_+MONITORING_VITALS...;>+GATHERING_COMMIT_METRICS_+FETCHING...;>+SYSTEM_OPTIMAL_+RECEIVING_DATA..." alt="Live Feed Status" />
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Ignisight&show_icons=true&theme=react&bg_color=0D1117&text_color=ffffff&title_color=39d353&icon_color=39d353&hide_border=true" height="180"/>
+  <img src="https://img.shields.io/badge/SYSTEM_TELEMETRY-153_COMMITS-39d353?style=for-the-badge&logo=git&logoColor=0D1117&labelColor=0D1117"/>
+  <img src="https://img.shields.io/badge/ACTIVE_REPOS-7-39d353?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117"/>
+  <br><br>
   <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ignisight&theme=react&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&sideLabels=ffffff&dates=ffffff&text=ffffff&hide_border=true" height="180"/>
 </div>
 
