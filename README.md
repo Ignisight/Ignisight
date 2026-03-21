@@ -62,8 +62,8 @@
 ### `TELEMETRY_DATA` &nbsp; <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&weight=400&size=10&duration=3000&pause=500&color=39D353&vCenter=true&multiline=false&repeat=true&width=400&height=25&lines=>+LINK_ESTABLISHED_+MONITORING_VITALS...;>+GATHERING_COMMIT_METRICS_+FETCHING...;>+SYSTEM_OPTIMAL_+RECEIVING_DATA..." alt="Live Feed Status" />
 
 <div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=Ignisight&show_icons=true&theme=react-dark&bg_color=0D1117&title_color=39d353&text_color=ffffff&icon_color=39d353&border_color=26a641&hide_border=false" height="170"/>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ignisight&theme=react-dark&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&border=26a641&dates=ffffff&sideLabels=ffffff&stroke=ffffff&text=ffffff" height="170"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Ignisight&show_icons=true&theme=react&bg_color=0D1117&text_color=ffffff&title_color=58a6ff&icon_color=58a6ff&hide_border=true" height="180"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ignisight&theme=react&background=0D1117&ring=58a6ff&fire=ffaa00&currStreakLabel=58a6ff&sideLabels=ffffff&dates=ffffff&text=ffffff&hide_border=true" height="180"/>
 </div>
 
 <br>
