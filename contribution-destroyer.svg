@@ -1,0 +1,435 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 840 400" width="840" height="400">
+  <defs>
+    <style>
+      @keyframes shipMove{0%,100%{transform:translateX(0)}25%{transform:translateX(120px)}50%{transform:translateX(-80px)}75%{transform:translateX(60px)}}
+      @keyframes bullet1{0%{opacity:0;transform:translateY(0)}5%{opacity:1}30%{opacity:1;transform:translateY(-200px)}31%{opacity:0}100%{opacity:0}}
+      @keyframes bullet2{0%,15%{opacity:0;transform:translateY(0)}20%{opacity:1}45%{opacity:1;transform:translateY(-220px)}46%{opacity:0}100%{opacity:0}}
+      @keyframes bullet3{0%,35%{opacity:0;transform:translateY(0)}40%{opacity:1}65%{opacity:1;transform:translateY(-210px)}66%{opacity:0}100%{opacity:0}}
+      @keyframes bullet4{0%,55%{opacity:0;transform:translateY(0)}60%{opacity:1}85%{opacity:1;transform:translateY(-190px)}86%{opacity:0}100%{opacity:0}}
+      @keyframes explode1{0%,29%{opacity:0;transform:scale(0)}30%{opacity:1;transform:scale(0.3)}35%{opacity:1;transform:scale(1.5)}42%{opacity:0;transform:scale(2)}100%{opacity:0}}
+      @keyframes explode2{0%,44%{opacity:0;transform:scale(0)}45%{opacity:1;transform:scale(0.3)}50%{opacity:1;transform:scale(1.5)}57%{opacity:0;transform:scale(2)}100%{opacity:0}}
+      @keyframes explode3{0%,64%{opacity:0;transform:scale(0)}65%{opacity:1;transform:scale(0.3)}70%{opacity:1;transform:scale(1.5)}77%{opacity:0;transform:scale(2)}100%{opacity:0}}
+      @keyframes explode4{0%,84%{opacity:0;transform:scale(0)}85%{opacity:1;transform:scale(0.3)}90%{opacity:1;transform:scale(1.5)}97%{opacity:0;transform:scale(2)}100%{opacity:0}}
+      @keyframes blockHit1{0%,29%{opacity:1}30%{opacity:0}100%{opacity:0}}
+      @keyframes blockHit2{0%,44%{opacity:1}45%{opacity:0}100%{opacity:0}}
+      @keyframes blockHit3{0%,64%{opacity:1}65%{opacity:0}100%{opacity:0}}
+      @keyframes blockHit4{0%,84%{opacity:1}85%{opacity:0}100%{opacity:0}}
+      @keyframes thruster{0%,100%{opacity:.7;transform:scaleY(1)}50%{opacity:1;transform:scaleY(1.4)}}
+      @keyframes starTwinkle{0%,100%{opacity:.3}50%{opacity:.9}}
+      @keyframes scanline{0%{transform:translateY(-400px)}100%{transform:translateY(400px)}}
+      @keyframes gridPulse{0%,100%{opacity:.03}50%{opacity:.06}}
+      @keyframes scoreCount{0%,29%{opacity:1}30%{opacity:1}100%{opacity:1}}
+      @keyframes labelGlow{0%,100%{opacity:.6}50%{opacity:1}}
+      @keyframes enemyBullet1{0%,32%{opacity:0;transform:translateY(0)}33%{opacity:1}55%{opacity:1;transform:translateY(160px)}56%{opacity:0}100%{opacity:0}}
+      @keyframes enemyBullet2{0%,48%{opacity:0;transform:translateY(0)}49%{opacity:1}72%{opacity:1;transform:translateY(140px)}73%{opacity:0}100%{opacity:0}}
+      .ship{animation:shipMove 8s ease-in-out infinite}
+      .b1{animation:bullet1 8s linear infinite}
+      .b2{animation:bullet2 8s linear infinite}
+      .b3{animation:bullet3 8s linear infinite}
+      .b4{animation:bullet4 8s linear infinite}
+      .ex1{animation:explode1 8s linear infinite}
+      .ex2{animation:explode2 8s linear infinite}
+      .ex3{animation:explode3 8s linear infinite}
+      .ex4{animation:explode4 8s linear infinite}
+      .bh1{animation:blockHit1 8s linear infinite}
+      .bh2{animation:blockHit2 8s linear infinite}
+      .bh3{animation:blockHit3 8s linear infinite}
+      .bh4{animation:blockHit4 8s linear infinite}
+      .thrust{animation:thruster .3s ease-in-out infinite;transform-origin:center top}
+      .eb1{animation:enemyBullet1 8s linear infinite}
+      .eb2{animation:enemyBullet2 8s linear infinite}
+    </style>
+    <filter id="glow">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <filter id="glowStrong">
+      <feGaussianBlur in="SourceGraphic" stdDeviation="4" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="840" height="400" fill="#0d1117" rx="8"/>
+
+  <!-- Grid lines -->
+  <g opacity=".04" stroke="#39d353" stroke-width=".5">
+    <line x1="0" y1="50" x2="840" y2="50"/><line x1="0" y1="100" x2="840" y2="100"/>
+    <line x1="0" y1="150" x2="840" y2="150"/><line x1="0" y1="200" x2="840" y2="200"/>
+    <line x1="0" y1="250" x2="840" y2="250"/><line x1="0" y1="300" x2="840" y2="300"/>
+    <line x1="0" y1="350" x2="840" y2="350"/>
+    <line x1="100" y1="0" x2="100" y2="400"/><line x1="200" y1="0" x2="200" y2="400"/>
+    <line x1="300" y1="0" x2="300" y2="400"/><line x1="400" y1="0" x2="400" y2="400"/>
+    <line x1="500" y1="0" x2="500" y2="400"/><line x1="600" y1="0" x2="600" y2="400"/>
+    <line x1="700" y1="0" x2="700" y2="400"/>
+  </g>
+
+  <!-- Stars -->
+  <g>
+    <circle cx="50" cy="30" r="1" fill="#58a6ff" opacity=".5" style="animation:starTwinkle 3s ease infinite"/>
+    <circle cx="150" cy="80" r=".8" fill="#79c0ff" opacity=".4" style="animation:starTwinkle 4s ease infinite .5s"/>
+    <circle cx="280" cy="20" r="1.2" fill="#58a6ff" opacity=".6" style="animation:starTwinkle 2.5s ease infinite 1s"/>
+    <circle cx="500" cy="45" r=".7" fill="#a5d6ff" opacity=".3" style="animation:starTwinkle 3.5s ease infinite .3s"/>
+    <circle cx="650" cy="25" r="1" fill="#79c0ff" opacity=".5" style="animation:starTwinkle 4s ease infinite 1.5s"/>
+    <circle cx="780" cy="60" r=".9" fill="#58a6ff" opacity=".4" style="animation:starTwinkle 3s ease infinite 2s"/>
+    <circle cx="100" cy="350" r=".6" fill="#79c0ff" opacity=".3" style="animation:starTwinkle 5s ease infinite"/>
+    <circle cx="720" cy="300" r=".8" fill="#58a6ff" opacity=".4" style="animation:starTwinkle 3s ease infinite 1s"/>
+    <circle cx="350" cy="380" r="1" fill="#a5d6ff" opacity=".3" style="animation:starTwinkle 4s ease infinite 2s"/>
+    <circle cx="600" cy="370" r=".7" fill="#79c0ff" opacity=".5" style="animation:starTwinkle 2s ease infinite"/>
+  </g>
+
+  <!-- "github.com/anuragkishan" label -->
+  <text x="420" y="28" text-anchor="middle" fill="#484f58" font-family="monospace" font-size="10" style="animation:labelGlow 4s ease infinite">github.com/anuragkishan</text>
+
+  <!-- Day labels -->
+  <text x="118" y="72" fill="#484f58" font-family="monospace" font-size="9">Mon</text>
+  <text x="118" y="106" fill="#484f58" font-family="monospace" font-size="9">Wed</text>
+  <text x="118" y="140" fill="#484f58" font-family="monospace" font-size="9">Fri</text>
+
+  <!-- ===== CONTRIBUTION GRAPH BLOCKS ===== -->
+  <!-- Week 1 -->
+  <rect x="145" y="45" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="145" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="145" y="79" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="145" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="145" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="145" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="145" y="147" width="12" height="12" rx="2" fill="#161b22"/>
+  <!-- Week 2 -->
+  <rect x="162" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="162" y="62" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="162" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="162" y="96" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="162" y="113" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="162" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="162" y="147" width="12" height="12" rx="2" fill="#39d353"/>
+  <!-- Week 3 -->
+  <rect x="179" y="45" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="179" y="62" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="179" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="179" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="179" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="179" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="179" y="147" width="12" height="12" rx="2" fill="#0e4429"/>
+  <!-- Week 4 -->
+  <rect x="196" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="196" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="196" y="79" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="196" y="96" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="196" y="113" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="196" y="130" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="196" y="147" width="12" height="12" rx="2" fill="#39d353"/>
+  <!-- Week 5 -->
+  <rect x="213" y="45" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="213" y="62" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="213" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="213" y="96" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="213" y="113" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="213" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="213" y="147" width="12" height="12" rx="2" fill="#26a641"/>
+  <!-- Week 6 -->
+  <rect x="230" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="230" y="62" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="230" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="230" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="230" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="230" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="230" y="147" width="12" height="12" rx="2" fill="#161b22"/>
+  <!-- Week 7-13 (more blocks) -->
+  <rect x="247" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="247" y="62" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="247" y="79" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="247" y="96" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="247" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="247" y="130" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="247" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <rect x="264" y="45" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="264" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="264" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="264" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="264" y="113" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="264" y="130" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="264" y="147" width="12" height="12" rx="2" fill="#39d353"/>
+
+  <rect x="281" y="45" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="281" y="62" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="281" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="281" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="281" y="113" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="281" y="130" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="281" y="147" width="12" height="12" rx="2" fill="#0e4429"/>
+
+  <!-- Weeks 10-20 (extending the graph) -->
+  <rect x="298" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="298" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="298" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="298" y="96" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="298" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="298" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="298" y="147" width="12" height="12" rx="2" fill="#161b22"/>
+
+  <rect x="315" y="45" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="315" y="62" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="315" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="315" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="315" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="315" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="315" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <rect x="332" y="45" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="332" y="62" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="332" y="79" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="332" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="332" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="332" y="130" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="332" y="147" width="12" height="12" rx="2" fill="#39d353"/>
+
+  <rect x="349" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="349" y="62" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="349" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="349" y="96" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="349" y="113" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="349" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="349" y="147" width="12" height="12" rx="2" fill="#26a641"/>
+
+  <!-- More weeks extending right -->
+  <rect x="366" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="366" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="366" y="79" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="366" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="366" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="366" y="130" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="366" y="147" width="12" height="12" rx="2" fill="#161b22"/>
+
+  <rect x="383" y="45" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="383" y="62" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="383" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="383" y="96" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="383" y="113" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="383" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="383" y="147" width="12" height="12" rx="2" fill="#26a641"/>
+
+  <rect x="400" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="400" y="62" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="400" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="400" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="400" y="113" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="400" y="130" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="400" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <!-- Weeks 17-26 -->
+  <rect x="417" y="45" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="417" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="417" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="417" y="96" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="417" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="417" y="130" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="417" y="147" width="12" height="12" rx="2" fill="#39d353"/>
+
+  <rect x="434" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="434" y="62" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="434" y="79" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="434" y="96" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="434" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="434" y="130" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="434" y="147" width="12" height="12" rx="2" fill="#0e4429"/>
+
+  <rect x="451" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="451" y="62" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="451" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="451" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="451" y="113" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="451" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="451" y="147" width="12" height="12" rx="2" fill="#26a641"/>
+
+  <rect x="468" y="45" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="468" y="62" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="468" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="468" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="468" y="113" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="468" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="468" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <!-- Weeks 22-26 -->
+  <rect x="485" y="45" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="485" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="485" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="485" y="96" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="485" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="485" y="130" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="485" y="147" width="12" height="12" rx="2" fill="#39d353"/>
+
+  <rect x="502" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="502" y="62" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="502" y="79" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="502" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="502" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="502" y="130" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="502" y="147" width="12" height="12" rx="2" fill="#0e4429"/>
+
+  <rect x="519" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="519" y="62" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="519" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="519" y="96" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="519" y="113" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="519" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="519" y="147" width="12" height="12" rx="2" fill="#26a641"/>
+
+  <rect x="536" y="45" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="536" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="536" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="536" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="536" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="536" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="536" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <rect x="553" y="45" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="553" y="62" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="553" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="553" y="96" width="12" height="12" rx="2" fill="#161b22"/>
+  <rect x="553" y="113" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="553" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="553" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <!-- More weeks 27-34 -->
+  <rect x="570" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="570" y="62" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="570" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="570" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="570" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="570" y="130" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="570" y="147" width="12" height="12" rx="2" fill="#0e4429"/>
+
+  <rect x="587" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="587" y="62" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="587" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="587" y="96" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="587" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="587" y="130" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="587" y="147" width="12" height="12" rx="2" fill="#26a641"/>
+
+  <rect x="604" y="45" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="604" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="604" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="604" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="604" y="113" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="604" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="604" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <rect x="621" y="45" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="621" y="62" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="621" y="79" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="621" y="96" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="621" y="113" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="621" y="130" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="621" y="147" width="12" height="12" rx="2" fill="#39d353"/>
+
+  <rect x="638" y="45" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="638" y="62" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="638" y="79" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="638" y="96" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="638" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="638" y="130" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="638" y="147" width="12" height="12" rx="2" fill="#006d32"/>
+
+  <rect x="655" y="45" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="655" y="62" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="655" y="79" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="655" y="96" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="655" y="113" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="655" y="130" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="655" y="147" width="12" height="12" rx="2" fill="#26a641"/>
+
+  <rect x="672" y="45" width="12" height="12" rx="2" fill="#0e4429"/>
+  <rect x="672" y="62" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="672" y="79" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="672" y="96" width="12" height="12" rx="2" fill="#26a641"/>
+  <rect x="672" y="113" width="12" height="12" rx="2" fill="#006d32"/>
+  <rect x="672" y="130" width="12" height="12" rx="2" fill="#39d353"/>
+  <rect x="672" y="147" width="12" height="12" rx="2" fill="#0e4429"/>
+
+  <!-- ===== BLOCKS THAT GET HIT (animated to disappear) ===== -->
+  <rect x="400" y="147" width="12" height="12" rx="2" fill="#39d353" filter="url(#glow)" class="bh1"/>
+  <rect x="298" y="130" width="12" height="12" rx="2" fill="#26a641" filter="url(#glow)" class="bh2"/>
+  <rect x="519" y="113" width="12" height="12" rx="2" fill="#39d353" filter="url(#glow)" class="bh3"/>
+  <rect x="621" y="147" width="12" height="12" rx="2" fill="#006d32" filter="url(#glow)" class="bh4"/>
+
+  <!-- ===== EXPLOSIONS ===== -->
+  <g class="ex1" filter="url(#glowStrong)">
+    <circle cx="406" cy="153" r="6" fill="#39d353" opacity=".8"/>
+    <circle cx="400" cy="148" r="3" fill="#fff" opacity=".6"/>
+    <rect x="394" y="151" width="4" height="4" fill="#39d353" opacity=".7"/>
+    <rect x="408" y="146" width="3" height="3" fill="#26a641" opacity=".6"/>
+    <rect x="398" y="158" width="3" height="3" fill="#fff" opacity=".5"/>
+    <rect x="411" y="155" width="2" height="2" fill="#39d353" opacity=".7"/>
+  </g>
+  <g class="ex2" filter="url(#glowStrong)">
+    <circle cx="304" cy="136" r="6" fill="#26a641" opacity=".8"/>
+    <circle cx="298" cy="131" r="3" fill="#fff" opacity=".6"/>
+    <rect x="292" y="134" width="4" height="4" fill="#26a641" opacity=".7"/>
+    <rect x="308" y="130" width="3" height="3" fill="#39d353" opacity=".6"/>
+    <rect x="300" y="140" width="3" height="3" fill="#fff" opacity=".5"/>
+  </g>
+  <g class="ex3" filter="url(#glowStrong)">
+    <circle cx="525" cy="119" r="6" fill="#39d353" opacity=".8"/>
+    <circle cx="519" cy="114" r="3" fill="#fff" opacity=".6"/>
+    <rect x="513" y="117" width="4" height="4" fill="#39d353" opacity=".7"/>
+    <rect x="529" y="112" width="3" height="3" fill="#26a641" opacity=".6"/>
+  </g>
+  <g class="ex4" filter="url(#glowStrong)">
+    <circle cx="627" cy="153" r="6" fill="#006d32" opacity=".8"/>
+    <circle cx="621" cy="148" r="3" fill="#fff" opacity=".6"/>
+    <rect x="615" y="151" width="4" height="4" fill="#006d32" opacity=".7"/>
+    <rect x="630" y="147" width="3" height="3" fill="#39d353" opacity=".6"/>
+  </g>
+
+  <!-- ===== ENEMY RETURN FIRE ===== -->
+  <rect x="349" y="158" width="2" height="6" rx="1" fill="#f55" filter="url(#glow)" class="eb1"/>
+  <rect x="553" y="158" width="2" height="6" rx="1" fill="#f85" filter="url(#glow)" class="eb2"/>
+
+  <!-- ===== SPACESHIP ===== -->
+  <g class="ship" filter="url(#glow)">
+    <!-- Thruster -->
+    <g class="thrust">
+      <rect x="414" y="340" width="12" height="14" rx="2" fill="url(#thrustGrad)" opacity=".8"/>
+    </g>
+    <!-- Ship body -->
+    <polygon points="420,310 400,345 410,340 420,347 430,340 440,345" fill="#39d353" stroke="#5ff57a" stroke-width=".5"/>
+    <!-- Cockpit -->
+    <circle cx="420" cy="328" r="4" fill="rgba(57,211,83,.5)"/>
+    <!-- Wing details -->
+    <line x1="405" y1="340" x2="395" y2="348" stroke="#39d353" stroke-width="1" opacity=".5"/>
+    <line x1="435" y1="340" x2="445" y2="348" stroke="#39d353" stroke-width="1" opacity=".5"/>
+  </g>
+
+  <!-- Thruster gradient -->
+  <defs>
+    <linearGradient id="thrustGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#39d353"/>
+      <stop offset="50%" stop-color="#0ff" stop-opacity=".6"/>
+      <stop offset="100%" stop-color="transparent"/>
+    </linearGradient>
+  </defs>
+
+  <!-- ===== BULLETS FROM SHIP ===== -->
+  <rect x="416" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b1"/>
+  <rect x="422" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b1"/>
+  <rect x="416" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b2"/>
+  <rect x="422" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b2"/>
+  <rect x="416" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b3"/>
+  <rect x="422" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b3"/>
+  <rect x="416" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b4"/>
+  <rect x="422" y="305" width="2" height="10" rx="1" fill="#39d353" filter="url(#glow)" class="b4"/>
+
+  <!-- ===== HUD OVERLAY ===== -->
+  <text x="30" y="385" fill="#39d353" font-family="monospace" font-size="10" opacity=".5" style="animation:labelGlow 3s ease infinite">SCORE: 1,337</text>
+  <text x="420" y="385" text-anchor="middle" fill="#484f58" font-family="monospace" font-size="9">◄ CONTRIBUTION DESTROYER ►</text>
+  <text x="810" y="385" text-anchor="end" fill="#39d353" font-family="monospace" font-size="10" opacity=".5" style="animation:labelGlow 3s ease infinite 1s">SHIELDS: ███</text>
+
+  <!-- Scanline effect -->
+  <rect width="840" height="3" fill="rgba(57,211,83,.03)" style="animation:scanline 4s linear infinite"/>
+
+  <!-- Border glow -->
+  <rect width="840" height="400" fill="none" stroke="#39d353" stroke-width="1" rx="8" opacity=".15"/>
+</svg>
