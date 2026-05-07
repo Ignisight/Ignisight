@@ -66,7 +66,7 @@
   <img src="https://img.shields.io/badge/SYSTEM_TELEMETRY-153_COMMITS-39d353?style=for-the-badge&logo=git&logoColor=0D1117&labelColor=0D1117"/>
   <img src="https://img.shields.io/badge/ACTIVE_REPOS-7-39d353?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117"/>
   <br><br>
-  <img src="https://github-readme-stats.vercel.app/api?username=Ignisight&show_icons=true&bg_color=0D1117&title_color=39d353&text_color=8b949e&icon_color=39d353&border_color=26a641&hide_border=false" height="170"/>
+  <img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Ignisight&show_icons=true&bg_color=0D1117&title_color=39d353&text_color=8b949e&icon_color=39d353&border_color=26a641&hide_border=false" height="170"/>
   <img src="https://streak-stats.demolab.com/?user=Ignisight&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&border=26a641&sideLabels=8b949e&dates=8b949e&sideNums=39d353" height="170"/>
 </div>
 
