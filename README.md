@@ -1,11 +1,11 @@
 <div align="center">
 
 ```text
-    ___    _   ____  _____  ____  ___    ______   __ __ _________ __  __ ___    _   __
-   /   |  / | / / / / / __ \/ __ |/ __ \  / _/ /  / //_//  _/ ___// / / //   |  / | / /
-  / /| | /  |/ / / / / /_/ / /_/ / / / / / // /  / ,<   / / \__ \/ /_/ // /| | /  |/ / 
- / ___ |/ /|  / /_/ / _, _/ __  / /_/ /_/ // /__/ /| | / / ___/ / __  // ___ |/ /|  /  
-/_/  |_/_/ |_/\____/_/ |_/_/ |_/\____//___/____/_/ |_/___//____/_/ /_//_/  |_/_/ |_/   
+    ___    _   __ __  __ ____   ___    ______   __ __ ____ _____ __  __ ___    _   __
+   /   |  / | / // / / // __ \ /   |  / ____/  / //_//  _// ___// / / //   |  / | / /
+  / /| | /  |/ // / / // /_/ // /| | / / __   / ,<   / /  \__ \/ /_/ // /| | /  |/ / 
+ / ___ |/ /|  // /_/ // _, _// ___ |/ /_/ /  / /| |_/ /  ___/ / __  // ___ |/ /|  /  
+/_/  |_/_/ |_/ \____//_/ |_|/_/  |_|\____/  /_/ |_/___/ /____//_/ /_//_/  |_/_/ |_/   
 ```
 
 **`SYSTEM STATUS: ONLINE` &nbsp; // &nbsp; `ROLE: SOFTWARE & AI EXPLORER` &nbsp; // &nbsp; `BASE: NIT JAMSHEDPUR`**
@@ -53,9 +53,10 @@
 
 | 🗂️ DIRECTORY | 📝 DESCRIPTION_LOG | 🛠️ CORE_TECH |
 |:---|:---|:---|
-| `> crack_detect_sys` | Automated structural defect identification using 40K+ images | Python, Classification Models |
-| `> disease_predictor` | Multi-class agricultural detection achieving 95%+ accuracy | Scikit-learn, Data Analysis |
-| `> qr_attendance` | Secure anti-proxy attendance network with dynamic fluid QR blocks | Python, Full Stack |
+| [`> AEGIS Attendance System`](https://github.com/Ignisight/AEGIS) | Zero-trust attendance network with biometric verification & cryptographic integrity | React Native, Node.js, Python |
+| [`> crack_detect_sys`](https://github.com/Ignisight/crack_detect_sys) | Automated structural defect identification using 40K+ images | Python, Classification Models |
+| [`> disease_predictor`](https://github.com/Ignisight/disease_predictor) | Multi-class agricultural detection achieving 95%+ accuracy | Scikit-learn, Data Analysis |
+| [`> contrib_invader`](https://github.com/Ignisight/contrib_invader) | Backdated git manipulation drawing an arcade ship on the graph | Shell, Git Graph |
 
 <br>
 
@@ -65,7 +66,8 @@
   <img src="https://img.shields.io/badge/SYSTEM_TELEMETRY-153_COMMITS-39d353?style=for-the-badge&logo=git&logoColor=0D1117&labelColor=0D1117"/>
   <img src="https://img.shields.io/badge/ACTIVE_REPOS-7-39d353?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117"/>
   <br><br>
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ignisight&theme=react&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&sideLabels=ffffff&dates=ffffff&text=ffffff&hide_border=true" height="180"/>
+  <img src="https://github-readme-stats.vercel.app/api?username=Ignisight&show_icons=true&bg_color=0D1117&title_color=39d353&text_color=8b949e&icon_color=39d353&border_color=26a641&hide_border=false" height="170"/>
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=Ignisight&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&border=26a641&labels=8b949e&dates=8b949e&sideNums=39d353" height="170"/>
 </div>
 
 <br>
