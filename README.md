@@ -54,7 +54,7 @@
 | 🗂️ DIRECTORY | 📝 DESCRIPTION_LOG | 🛠️ CORE_TECH |
 |:---|:---|:---|
 | [`> AEGIS Attendance System`](https://github.com/Ignisight/AEGIS) | Zero-trust attendance network with biometric verification & cryptographic integrity | React Native, Node.js, Python |
-| [`> crack_detect_sys`](https://github.com/Ignisight/crack_detect_sys) | Automated structural defect identification using 40K+ images | Python, Classification Models |
+| [`> crack_detect_sys`]((https://github.com/Ignisight/Surface_crack_detection_using_CNN)) | Automated structural defect identification using 40K+ images | Python, Classification Models |
 | [`> disease_predictor`](https://github.com/Ignisight/disease_predictor) | Multi-class agricultural detection achieving 95%+ accuracy | Scikit-learn, Data Analysis |
 | [`> contrib_invader`](https://github.com/Ignisight/contrib_invader) | Backdated git manipulation drawing an arcade ship on the graph | Shell, Git Graph |
 
