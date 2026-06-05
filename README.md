@@ -11,7 +11,7 @@
 <br/>
 
 <div align="center">
-<img src="./shipcomputer.webp" width="520" alt="ship computer"/>
+<img src="./shipcomputer.gif" width="520" alt="ship computer"/>
 <br/>
 <img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=11&duration=4000&pause=1000&color=39D353&center=true&vCenter=true&repeat=true&width=400&height=20&lines=//+SIGNAL+LOCKED+—+SYSTEMS+NOMINAL;//+UPLINK+ESTABLISHED+—+STANDING+BY;//+ALL+SYSTEMS+GO" alt="signal"/>
 </div>
