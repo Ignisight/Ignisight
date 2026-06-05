@@ -13,12 +13,14 @@
 
 <br/>
 
-<img src="./shipcomputer.gif" width="480" alt="ship computer"/>
+<img src="./shipcomputer.webp" width="500" alt="ship computer"/>
 
 <br/>
 <sub><code>// SIGNAL LOCKED — SYSTEMS NOMINAL</code></sub>
 
 </div>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=39d353&height=60&section=header&fontColor=0D1117" width="100%"/>
 
 ---
 
@@ -33,25 +35,26 @@
   "focus"    : ["Machine Learning", "Software Engineering", "Data Science"],
   "stack"    : ["Python", "TensorFlow", "Scikit-learn", "SQL"],
   "wins"     : ["🏆 RoboWar — Cognito 2023", "🏆 CANSYS — Ojas 2024"],
-  "mail"     : "Ignisight7@gmail.com",
+  "mail"     : "anuragkishan7@gmail.com",
   "linkedin" : "linkedin.com/in/anurag-kishan07"
 }
 ```
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=39d353&height=40&section=footer&fontColor=0D1117" width="100%"/>
 
 ---
 
 ### `> TECH_STACK.EXE`
 
-<p>
-<img src="https://img.shields.io/badge/Python-0D1117?style=flat-square&logo=python&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/SQL-0D1117?style=flat-square&logo=postgresql&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/TensorFlow-0D1117?style=flat-square&logo=tensorflow&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/Scikit--Learn-0D1117?style=flat-square&logo=scikitlearn&logoColor=39d353"/>
+<p align="center">
+<img src="https://skillicons.dev/icons?i=python,tensorflow,sklearn,pytorch,mysql,git,github,vscode&theme=dark&perline=8"/>
+</p>
+
+<p align="center">
 <img src="https://img.shields.io/badge/Pandas-0D1117?style=flat-square&logo=pandas&logoColor=39d353"/>
 <img src="https://img.shields.io/badge/NumPy-0D1117?style=flat-square&logo=numpy&logoColor=39d353"/>
 <img src="https://img.shields.io/badge/Keras-0D1117?style=flat-square&logo=keras&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/Git-0D1117?style=flat-square&logo=git&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/GitHub-0D1117?style=flat-square&logo=github&logoColor=39d353"/>
+<img src="https://img.shields.io/badge/Scikit--Learn-0D1117?style=flat-square&logo=scikitlearn&logoColor=39d353"/>
 </p>
 
 ---
@@ -81,19 +84,34 @@
 &nbsp;
 <img src="https://streak-stats.demolab.com/?user=Ignisight&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&border=26a641&sideLabels=8b949e&dates=8b949e&sideNums=39d353" height="165"/>
 
+<br/><br/>
+
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=Ignisight&bg_color=0D1117&color=39d353&line=26a641&point=39d353&area=true&hide_border=false&border_color=26a641" width="95%"/>
+
+</div>
+
+---
+
+### `> CONTRIBUTION_MATRIX`
+
+<div align="center">
+<img src="https://raw.githubusercontent.com/Ignisight/Ignisight/output/github-contribution-grid-snake-dark.svg" alt="contribution snake"/>
 </div>
 
 ---
 
 <div align="center">
 
-[![Mail](https://img.shields.io/badge/✉_MAIL-Ignisight7@gmail.com-39d353?style=flat-square&labelColor=0D1117)](mailto:Ignisight7@gmail.com)
+[![Mail](https://img.shields.io/badge/✉_MAIL-anuragkishan7@gmail.com-39d353?style=flat-square&labelColor=0D1117)](mailto:anuragkishan7@gmail.com)
 &nbsp;
 [![LinkedIn](https://img.shields.io/badge/🔗_LINKEDIN-anurag--kishan07-39d353?style=flat-square&labelColor=0D1117)](https://linkedin.com/in/anurag-kishan07)
 &nbsp;
 [![GitHub](https://img.shields.io/badge/💾_GITHUB-Ignisight-39d353?style=flat-square&labelColor=0D1117)](https://github.com/Ignisight)
 
 <br/>
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=39d353&height=80&section=footer" width="100%"/>
+
 <sub><code>[ EOF ] :: end of system transmission // Ignisight © 2026</code></sub>
 
 </div>
