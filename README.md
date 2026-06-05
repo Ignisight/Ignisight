@@ -13,7 +13,7 @@
 
 <br/>
 
-<img src="./shipcomputer.webp" width="500" alt="ship computer"/>
+<img src="./shipcomputer.gif" width="500" alt="ship computer"/>
 
 <br/>
 <sub><code>// SIGNAL LOCKED — SYSTEMS NOMINAL</code></sub>
