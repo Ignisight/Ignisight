@@ -61,7 +61,7 @@
 | [`AEGIS`](https://github.com/Ignisight/AEGIS) | Zero-trust biometric attendance network | React Native · Node.js · Python |
 | [`crack_detect_sys`](https://github.com/Ignisight/Surface_crack_detection_using_CNN) | Structural defect ID via 40K+ images | Python · CNN |
 | [`disease_predictor`](https://github.com/Ignisight/chloroguard-app) |  Real-time plant disease ID & AI agronomy  |  React Native · FastAPI · PyTorch  |
-| [` OMNINOTES-STARK`](https://github.com/Ignisight/contrib_invader) | Hybrid notebook (Working on it now) | Shell · Git |
+| [` OMNINOTES-STARK`](https://github.com/Ignisight/OmniNote-Stark) | Hybrid notebook (Working on it now) | Shell · Git |
 
 ---
 
