@@ -88,9 +88,6 @@
 
 </td>
 <td align="center" width="50%">
-
-<img src="https://img.shields.io/badge/COMMITS-153-39d353?style=for-the-badge&logo=git&logoColor=0D1117&labelColor=0D1117"/>
-<br/><br/>
 <img src="https://img.shields.io/badge/ACTIVE_REPOS-7-39d353?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117"/>
 <br/><br/>
 <img src="https://img.shields.io/badge/STREAK-11_DAYS-39d353?style=for-the-badge&logo=githubactions&logoColor=0D1117&labelColor=0D1117"/>
