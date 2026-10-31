@@ -4,18 +4,18 @@
 ░█████╗░███╗░░██╗██╗░░░██╗██████╗░░█████╗░░██████╗░
 ██╔══██╗████╗░██║██║░░░██║██╔══██╗██╔══██╗██╔════╝░
 ███████║██╔██╗██║██║░░░██║██████╔╝███████║██║░░██╗░
-██╔══██║██║╚████║██║░░░██║██╔══██╗██╔══██║██║░░╚██╗
+██╔══██╗██║╚████║██║░░░██║██╔══██╗██╔══██╗██║░░╚██╗
 ██║░░██║██║░╚███║╚██████╔╝██║░░██║██║░░██║╚██████╔╝
 ╚═╝░░╚═╝╚═╝░░╚══╝░╚═════╝░╚═╝░░╚═╝╚═╝░░╚═╝░╚═════╝░
 ```
 
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=13&duration=2500&pause=800&color=39D353&center=true&vCenter=true&repeat=true&width=600&height=30&lines=%5B+SYSTEM+BOOT+COMPLETE+%5D+%3A%3A+SOFTWARE+%26+AI+EXPLORER+%3A%3A+NIT+JAMSHEDPUR" alt="Status"/>
+<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=13&duration=2500&pause=800&color=39D353&center=true&vCenter=true&repeat=true&width=600&height=30&lines=SOFTWARE+%26+AI+EXPLORER;BUILDING%2C+LEARNING%2C+ITERATING" alt="Profile tagline" />
 
-<br/>
+<br />
 
-<img src="./shipcomputer.gif" width="520" alt="ship computer"/>
+<img src="./shipcomputer.gif" width="520" alt="Retro-futuristic ship computer" />
 
-<br/>
+<br />
 <sub><code>// SIGNAL LOCKED — SYSTEMS NOMINAL</code></sub>
 
 </div>
@@ -26,14 +26,17 @@
 
 ```json
 {
-  "target"   : "Anurag Kishan",
-  "alias"    : "Ignisight",
-  "role"     : "ML Intern · Student",
-  "base"     : "NIT Jamshedpur, Odisha",
-  "focus"    : ["Machine Learning", "Software Engineering", "Data Science"],
-  "stack"    : ["Python", "TensorFlow", "Scikit-learn", "SQL"],
-  "wins"     : ["🏆 RoboWar — Cognito 2023", "🏆 CANSYS — Ojas 2024"],
-  "mission"  : "Build systems that push limits."
+  "name": "Anurag Kishan",
+  "alias": "Ignisight",
+  "background": "B.Tech — Engineering & Computational Mechanics",
+  "institution": "NIT Jamshedpur, Jharkhand",
+  "interests": [
+    "Machine Learning",
+    "Software Engineering",
+    "Data Science"
+  ],
+  "tools": ["Python", "TensorFlow", "Scikit-learn", "SQL"],
+  "mission": "Build useful systems and keep learning."
 }
 ```
 
@@ -42,73 +45,35 @@
 ### `> TECH_STACK.EXE`
 
 <div align="center">
-<img src="https://skillicons.dev/icons?i=python,tensorflow,sklearn,pytorch,mysql,git,github,vscode&theme=dark&perline=8"/>
-<br/><br/>
-<img src="https://img.shields.io/badge/Pandas-0D1117?style=flat-square&logo=pandas&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/NumPy-0D1117?style=flat-square&logo=numpy&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/Keras-0D1117?style=flat-square&logo=keras&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/Scikit--Learn-0D1117?style=flat-square&logo=scikitlearn&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/React_Native-0D1117?style=flat-square&logo=react&logoColor=39d353"/>
-<img src="https://img.shields.io/badge/Node.js-0D1117?style=flat-square&logo=nodedotjs&logoColor=39d353"/>
+<img src="https://skillicons.dev/icons?i=python,tensorflow,sklearn,pytorch,mysql,git,github,vscode&theme=dark&perline=8" alt="Technology icons" />
+<br /><br />
+<img src="https://img.shields.io/badge/Pandas-0D1117?style=flat-square&logo=pandas&logoColor=39d353" alt="Pandas" />
+<img src="https://img.shields.io/badge/NumPy-0D1117?style=flat-square&logo=numpy&logoColor=39d353" alt="NumPy" />
+<img src="https://img.shields.io/badge/Keras-0D1117?style=flat-square&logo=keras&logoColor=39d353" alt="Keras" />
+<img src="https://img.shields.io/badge/React_Native-0D1117?style=flat-square&logo=react&logoColor=39d353" alt="React Native" />
+<img src="https://img.shields.io/badge/Node.js-0D1117?style=flat-square&logo=nodedotjs&logoColor=39d353" alt="Node.js" />
 </div>
 
 ---
 
-### `> ACTIVE_DIRECTORIES`
+### `> SELECTED_PROJECTS`
 
-| 🗂️ PROJECT | 📝 LOG | 🛠️ STACK |
+| PROJECT | WHAT IT DOES | STACK |
 |:---|:---|:---|
-| [`AEGIS`](https://github.com/Ignisight/AEGIS) | Zero-trust biometric attendance network | React Native · Node.js · Python |
-| [`crack_detect_sys`](https://github.com/Ignisight/Surface_crack_detection_using_CNN) | Structural defect ID via 40K+ images | Python · CNN |
-| [`disease_predictor`](https://github.com/Ignisight/chloroguard-app) |  Real-time plant disease ID & AI agronomy  |  React Native · FastAPI · PyTorch  |
-| [` OMNINOTES-STARK`](https://github.com/Ignisight/OmniNote-Stark) | Hybrid notebook (Working on it now) | Shell · Git |
+| [AEGIS](https://github.com/Ignisight/AEGIS) | Biometric attendance system with a focus on secure access | React Native · Node.js · Python |
+| [Surface Crack Detection](https://github.com/Ignisight/Surface_crack_detection_using_CNN) | CNN-based structural surface-crack classification | Python · CNN |
+| [ChloroGuard](https://github.com/Ignisight/chloroguard-app) | Plant disease identification and agronomy assistance | React Native · FastAPI · PyTorch |
+| [OmniNote-Stark](https://github.com/Ignisight/OmniNote-Stark) | Hybrid notebook project — in progress | Shell · Git |
 
 ---
 
-### `> TELEMETRY_DATA`
+### `> CURRENT_FOCUS`
 
-<div align="center">
+- Building practical software and AI projects.
+- Strengthening foundations in software engineering, data, and systems.
+- Learning through implementation, debugging, and iteration.
 
-<img src="https://readme-typing-svg.demolab.com?font=Share+Tech+Mono&size=10&duration=3000&pause=500&color=39D353&center=true&vCenter=true&repeat=true&width=400&height=18&lines=>+MONITORING_VITALS...;>+FETCHING_COMMIT_METRICS...;>+ALL+SYSTEMS+OPTIMAL" alt="telemetry"/>
-
-<br/><br/>
-
-<table>
-<tr>
-<td align="center" width="50%">
-
-**`SKILL LOADOUT`**
-
-`█████████░` &nbsp; ML / AI &nbsp; `90%`  
-`████████░░` &nbsp; Data Science &nbsp; `85%`  
-`███████░░░` &nbsp; Software Eng &nbsp; `80%`  
-`███████░░░` &nbsp; Research &nbsp; `78%`  
-`██████░░░░` &nbsp; DSA &nbsp; `75%`  
-`██████░░░░` &nbsp; Systems &nbsp; `70%`  
-
-</td>
-<td align="center" width="50%">
-<img src="https://img.shields.io/badge/ACTIVE_REPOS-7-39d353?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117"/>
-<br/><br/>
-<img src="https://img.shields.io/badge/STREAK-11_DAYS-39d353?style=for-the-badge&logo=githubactions&logoColor=0D1117&labelColor=0D1117"/>
-<br/><br/>
-<img src="https://img.shields.io/badge/CONTRIBUTIONS-1412-39d353?style=for-the-badge&logo=github&logoColor=0D1117&labelColor=0D1117"/>
-
-</td>
-</tr>
-</table>
-
-<br/>
-
-<img src="https://github-readme-stats-sigma-five.vercel.app/api?username=Ignisight&show_icons=true&bg_color=0D1117&title_color=39d353&text_color=8b949e&icon_color=39d353&border_color=26a641" height="160"/>
-&nbsp;
-<img src="https://streak-stats.demolab.com/?user=Ignisight&background=0D1117&ring=39d353&fire=39d353&currStreakLabel=39d353&border=26a641&sideLabels=8b949e&dates=8b949e&sideNums=39d353" height="160"/>
-
-<br/><br/>
-
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=Ignisight&bg_color=0D1117&color=39d353&line=26a641&point=39d353&area=true&hide_border=false&border_color=26a641" width="95%"/>
-
-</div>
+> No self-assigned skill percentages, contribution totals, streak claims, or repository counters are shown here. GitHub's own profile activity is the source of truth for contribution history.
 
 ---
 
@@ -120,7 +85,7 @@
 &nbsp;
 [![GitHub](https://img.shields.io/badge/💾%20GITHUB-Ignisight-39d353?style=for-the-badge&labelColor=0D1117)](https://github.com/Ignisight)
 
-<br/><br/>
-<sub><code>[ EOF ] :: end of system transmission // Ignisight © 2026</code></sub>
+<br /><br />
+<sub><code>[ EOF ] :: end of system transmission // Ignisight</code></sub>
 
 </div>
